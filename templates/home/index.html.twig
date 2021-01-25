@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+{%dump(project)%}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        {% if project %}
+            {% for item in project %}
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                       <i class="{{item["icon"|raw ]}}"></i>
+                        <div class="card-body">
+                            <h5 class="card-title">{{item["name"]}}</h5>
+                            <p class="card-text">{{item["desc"]}}</p>
+                            <a href="#" class="btn btn-primary">{{item["date"]}}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
